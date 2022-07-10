@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+
+import NavBar from './components/NavBar';
+
 import './App.css';
 
-function App() {
-  
-  return (
-    <div className="App">
-      <h1>deu bom no preettier e no eslintrc</h1>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <NavBar />
+    <Outlet />
+  </div>
+);
 
 export default App;
