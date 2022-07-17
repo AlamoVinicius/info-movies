@@ -1,5 +1,5 @@
-/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
+import MovieCard from '../../components/MovieCard';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -24,7 +24,7 @@ const Home = () => {
       <h2 className="title">Melhores Filmes</h2>
       <div className="moviesContainer">
         {topMovies === 0 && <p>Carregando....</p>}
-        {topMovies.length > 0 && topMovies.map((movie) => <p>{movie.title}</p>)}
+        {topMovies.length > 0 && topMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </div>
     </div>
   );
