@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MovieCard from '../../components/MovieCard';
 
+import '../MovieGrid.css';
+
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -10,7 +12,6 @@ const Home = () => {
   const getTopRatedMovies = async (url) => {
     const res = await fetch(url);
     const { results } = await res.json();
-    // console.log(data.results[0].)
     setTopMovies(results);
   };
 
@@ -22,7 +23,7 @@ const Home = () => {
   return (
     <div className="container">
       <h2 className="title">Melhores Filmes</h2>
-      <div className="moviesContainer">
+      <div className="movies-container">
         {topMovies === 0 && <p>Carregando....</p>}
         {topMovies.length > 0 && topMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </div>
